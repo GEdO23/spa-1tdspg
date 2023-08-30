@@ -1,0 +1,8 @@
+
+.tabelaProd{
+    border-collapse: collapse;
+}
+
+.tabelaProd tr,td{
+    border: solid 2px #000;
+}
