@@ -1,8 +1,17 @@
 
 .tabelaProd{
     border-collapse: collapse;
+    margin: 0 auto;
 }
 
 .tabelaProd tr,td{
-    border: solid 2px #000;
+    border: solid 2px #000000;
+}
+
+.linhaCinza{
+    background-color: #ccc;
+}
+
+.linhaBranca{
+    background-color: #fff;
 }
