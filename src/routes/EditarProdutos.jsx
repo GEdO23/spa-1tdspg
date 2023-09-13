@@ -75,12 +75,6 @@ export default function EditarProdutos() {
               </fieldset>
             </form>
         </div>
-
-        {/* <div>
-          <p>Nome: {produto.nome}</p>
-          <p>Preço: {produto.preco}</p>
-          <p>Descrição: {produto.desc}</p>
-        </div> */}
     </>
   )
 }
