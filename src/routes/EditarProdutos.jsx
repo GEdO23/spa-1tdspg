@@ -23,58 +23,73 @@ export default function EditarProdutos() {
     });
 
     const handleChange = (event) => {
-        // Destructuring
+        // console.log(event.target);
+
+        //Destructuring
         const {name,value} = event.target;
-        // Inserir os dados no objeto produto através do setProduto({...});
+        //Inserir os dado no objeto produto através do setProduto({...});
         setProduto({...produto,[name]:value});
-    }
-
-    const HandleSubmit = (event) => {
-        event.preventDefault();
-
-        // Índice que será utilizado para a sobreposição do produto na lista
-        let indice;
-
-        // Localização do índice na lista
-        ListaProdutos.forEach((item,index) => {
-          if(item.id == produto.id) {
-            indice = index;
-          }
-        });
-
-        // Utilizando o método splice para alterar o produto no índice especificado
-        ListaProdutos.splice(indice,1,produto);
-        alert("Produto alterado com sucesso!");
-
-        navigate("/produtos");
 
     }
+
+    const handleSubmit = (event)=>{
+      
+      event.preventDefault();
+
+      //Índice que será utilizado para a sobreposição do produtos na lista.
+      let indice;
+
+      //Localização do índice na lista.
+      ListaProdutos.forEach((item,index)=>{
+        if(item.id == produto.id){
+          indice = index;
+        }       
+      });
+
+      //Utilizando o método splice para alterar o produto no índice especificado.
+      ListaProdutos.splice(indice,1,produto);
+      alert("Produto alterado!");
+
+      navigate("/produtos")
+
+    }
+
 
   return (
     <>
         <div>
+
+
             <h1>EDITAR-PRODUTOS</h1>
-            <form onSubmit={HandleSubmit}>
+            <form onSubmit={handleSubmit}>
               <fieldset>
                 <legend>EDITAR PRODUTO</legend>
                 <div>
                   <label htmlFor="idProduto">Nome Produto:</label>
-                  <input type="text" name="nome" id="idProduto" value={produto.nome} onChange={handleChange} contentEditable="false"/>
+                  <input type="text" name="nome" id="idProduto" value={produto.nome} onChange={handleChange} />
                 </div>
                 <div>
                   <label htmlFor="idPreco">Preço Produto:</label>
-                  <input type="text" name="preco" id="idPreco" value={produto.preco} onChange={handleChange} contentEditable="false"/>
+                  <input type="text" name="preco" id="idPreco" value={produto.preco} onChange={handleChange} />
                 </div>
                 <div>
                   <label htmlFor="idDesc">Descrição Produto:</label>
-                  <input type="text" name="desc" id="idDesc" value={produto.desc} onChange={handleChange} contentEditable="false"/>
+                  <input type="text" name="desc" id="idDesc" value={produto.desc} onChange={handleChange} />
                 </div>
+
                 <div>
                   <button >EDITAR</button>
                 </div>
               </fieldset>
             </form>
         </div>
+
+        <div>
+          <p>Nome : {produto.nome}</p>
+          <p>Preço : {produto.preco}</p>
+          <p>Desc : {produto.desc}</p>
+        </div>
+
     </>
   )
 }

@@ -3,29 +3,28 @@
     margin: 0 auto;
     border: 2px solid #ccc;
 
-.tblImg{
-    width: 15%;
-    transition: width 0.5s;
-    &:hover{
-        width: 100%;
+    .tblImg{
+        width:15%;
+        transition: width 3s;
+        &:hover{
+            width: 100%;
+        }
     }
-}
 
-.tabelaCabecalho{
-    background: #eee;
-    border: 2px solid #ccc;
-}
-
-.tabelaDados{
-    border: 2px solid #ccc;
-}
-
-.tabelaLinha{
-    height: 48px !important;
-    &:hover{
-        background-color: #eee;
+    .tabelaCabecalho{
+        background:#eee;
+        border: 2px solid #ccc;
     }
-}
 
+    .tabelaDados{
+        border: 2px solid #ccc;
+    }
+
+    .tabelaLinha{
+        height:48px !important;
+        &:hover{
+            background-color: #eee;
+        }
+    }
 
 }
