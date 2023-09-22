@@ -3,6 +3,7 @@ import { ListaProdutos } from "../components/ListaProdutos";
 import {AiOutlineEdit as Editar, AiOutlineDelete as Excluir} from "react-icons/ai";
 import classes from "./Produtos.module.css";
 import { useEffect, useState } from "react";
+import ModalExemplo from "../components/ModalExemplo/ModalExemplo";
 
 export default function Produtos() {
   document.title = "Produtos";
@@ -37,10 +38,17 @@ export default function Produtos() {
 
   }, []);
 
+
+  const [open, setOpen] = useState(false)
+
+
   return (
     <>
       <div>
         <h1>PRODUTOS</h1>
+
+        { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
+        <button onClick={() => setOpen(true)}>OPEN-MODAL</button>
 
         <table className={classes.tabelaProd}>
           <thead className={classes.tabelaCabecalho}>
