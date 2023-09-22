@@ -11,7 +11,7 @@ export default function ExcluirProduto() {
 
   const produtoObj = ListaProdutos.filter((item) => item.id == id)[0];
 
-  const [produto, setProduto] = useState(produtoObj);
+  const [produto] = useState(produtoObj);
 
   const handleDelete = () => {
     //Índice que será utilizado para a exclusãoo do produto na lista.
