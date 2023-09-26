@@ -94,7 +94,12 @@ export default function Produtos() {
             <tr>
               <td colSpan={6}>PRODUTOS INFORMÁTICOS - QTD = {novaListaProdutos.length}</td>
             </tr>
-            <button className="btn-adicionar">ADICIONAR NOVO PRODUTO</button>
+            <Link to={`/adicionar/produto`} className="btn-adicionar">
+              ADICIONAR NOVO PRODUTO
+            </Link>
+            {/* <button className="btn-adicionar" onClick={() => navigate("/adicionar/produto")}>
+              ADICIONAR NOVO PRODUTO
+            </button> */}
           </tfoot>
         </table>
       </div>

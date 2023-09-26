@@ -1,95 +1,83 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
 
 export default function AdicionarProduto() {
-
   document.title = "Adicionar Produto";
 
   const navigate = useNavigate();
 
-  //Recuperando o id do produto com o HOOK useParam();
-  const {id} = useParams();
+  const [produto, setProduto] = useState({
+    id: "",
+    nome: "",
+    preco: "",
+    desc: "",
+    img: ""
+  });
 
-    //Utilizando o filter na Lista de Produtos para recuperar um produto através do id como parâmetro.
-    const prodRecuperadoPorId = ListaProdutos.filter( produto => produto.id == id);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setProduto({ ...produto, [name]: value });
+  };
 
-    const [produto,setProduto] = useState({
-      id: prodRecuperadoPorId[0].id,
-      nome: prodRecuperadoPorId[0].nome,
-      preco: prodRecuperadoPorId[0].preco,
-      desc: prodRecuperadoPorId[0].desc,
-      img: prodRecuperadoPorId[0].img
-    });
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    const handleChange = (event) => {
-        // console.log(event.target);
+    // Gera um novo ID baseado no maior ID existente na lista de produtos
+    const novoId = Math.max(...ListaProdutos.map((produto) => produto.id)) + 1;
 
-        //Destructuring
-        const {name,value} = event.target;
-        //Inserir os dado no objeto produto através do setProduto({...});
-        setProduto({...produto,[name]:value});
+    const novoProduto = {
+      ...produto,
+      id: novoId.toString()
+    };
 
-    }
+    ListaProdutos.push(novoProduto);
+    alert("Produto adicionado!");
 
-    const handleSubmit = (event)=>{
-      
-      event.preventDefault();
-
-      //Índice que será utilizado para a sobreposição do produtos na lista.
-      let indice;
-
-      //Localização do índice na lista.
-      ListaProdutos.forEach((item,index)=>{
-        if(item.id == produto.id){
-          indice = index;
-        }       
-      });
-
-      //Utilizando o método splice para alterar o produto no índice especificado.
-      ListaProdutos.splice(indice,1,produto);
-      alert("Produto alterado!");
-
-      navigate("/produtos")
-
-    }
-
+    navigate("/produtos");
+  };
 
   return (
-    <>
-        <div>
-
-
-            <h1>ADICIONAR-PRODUTO</h1>
-            <form onSubmit={handleSubmit}>
-              <fieldset>
-                <legend>ADICIONAR PRODUTO</legend>
-                <div>
-                  <label htmlFor="idProduto">Nome Produto:</label>
-                  <input type="text" name="nome" id="idProduto" value={produto.nome} onChange={handleChange} />
-                </div>
-                <div>
-                  <label htmlFor="idPreco">Preço Produto:</label>
-                  <input type="text" name="preco" id="idPreco" value={produto.preco} onChange={handleChange} />
-                </div>
-                <div>
-                  <label htmlFor="idDesc">Descrição Produto:</label>
-                  <input type="text" name="desc" id="idDesc" value={produto.desc} onChange={handleChange} />
-                </div>
-
-                <div>
-                  <button>ADICIONAR</button>
-                </div>
-              </fieldset>
-            </form>
-        </div>
-
-        <div>
-          <p>Nome : {produto.nome}</p>
-          <p>Preço : {produto.preco}</p>
-          <p>Desc : {produto.desc}</p>
-        </div>
-
-    </>
-  )
+    <div className="container">
+      <h1>ADICIONAR PRODUTO</h1>
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+          <legend>ADICIONAR PRODUTO</legend>
+          <div>
+            <label htmlFor="idProduto">Nome Produto:</label>
+            <input
+              type="text"
+              name="nome"
+              id="idProduto"
+              value={produto.nome}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="idPreco">Preço Produto:</label>
+            <input
+              type="text"
+              name="preco"
+              id="idPreco"
+              value={produto.preco}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="idDesc">Descrição Produto:</label>
+            <input
+              type="text"
+              name="desc"
+              id="idDesc"
+              value={produto.desc}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button>ADICIONAR</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  );
 }
