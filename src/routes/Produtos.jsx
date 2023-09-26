@@ -94,6 +94,7 @@ export default function Produtos() {
             <tr>
               <td colSpan={6}>PRODUTOS INFORMÁTICOS - QTD = {novaListaProdutos.length}</td>
             </tr>
+            <button className="btn-adicionar">ADICIONAR NOVO PRODUTO</button>
           </tfoot>
         </table>
       </div>
