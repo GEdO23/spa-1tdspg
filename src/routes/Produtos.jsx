@@ -47,8 +47,8 @@ export default function Produtos() {
       <div>
         <h1>PRODUTOS</h1>
 
-        { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
-        <button onClick={() => setOpen(true)}>OPEN-MODAL</button>
+        {/* { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
+        <button onClick={() => setOpen(true)}>OPEN-MODAL</button> */}
 
         <table className={classes.tabelaProd}>
           <thead className={classes.tabelaCabecalho}>
@@ -80,26 +80,24 @@ export default function Produtos() {
                 <td>
                   {" "}
                   <Link to={`/editar/produto/${produto.id}`}>
-                    <Editar />
+                    <Editar className={classes.icon}/>
                   </Link>{" "}
                   /{" "}
                   <Link to={`/excluir/produto/${produto.id}`}>
-                    <Excluir />
+                    <Excluir className={classes.icon}/>
                   </Link>{" "}
                 </td>
               </tr>
             ))}
           </tbody>
           <tfoot className={classes.tabelaRodape}>
-            <tr>
-              <td colSpan={6}>PRODUTOS INFORMÁTICOS - QTD = {novaListaProdutos.length}</td>
-            </tr>
-            <Link to={`/adicionar/produto`} className="btn-adicionar">
+
+            <p colSpan={6}>QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}</p>
+
+            <Link to={`/adicionar/produto`} className={classes.btnAdcionar}>
               ADICIONAR NOVO PRODUTO
             </Link>
-            {/* <button className="btn-adicionar" onClick={() => navigate("/adicionar/produto")}>
-              ADICIONAR NOVO PRODUTO
-            </button> */}
+            
           </tfoot>
         </table>
       </div>

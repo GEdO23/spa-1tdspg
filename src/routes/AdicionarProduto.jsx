@@ -12,7 +12,7 @@ export default function AdicionarProduto() {
     nome: "",
     preco: "",
     desc: "",
-    img: ""
+    img: "https://picsum.photos/200/300"
   });
 
   const handleChange = (event) => {
