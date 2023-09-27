@@ -1,0 +1,21 @@
+.btn, .qtd {
+
+    color: #5900ff;
+    font-weight: 600;
+    
+    border: none;
+    padding: 10px;
+}
+
+.btn {
+    color: #fff;
+    background-color: #5900ff;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+
+    
+    &:hover {
+        filter: brightness(80%);
+    }
+}

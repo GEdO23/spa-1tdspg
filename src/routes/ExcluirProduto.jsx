@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ExcluirProduto() {
   document.title = "Excluir Produto";
@@ -37,8 +38,8 @@ export default function ExcluirProduto() {
       <div>
         <h2>{`Deseja realmente excluir o produto ${produto.nome}?`}</h2>
         <div>
-          <button onClick={handleDelete}>EXCLUIR</button>
-          <button onClick={()=> navigate("/produtos")}>CANCELAR</button>
+          <button className="btn" onClick={handleDelete}>EXCLUIR</button>
+          <button className="btn" onClick={()=> navigate("/produtos")}>CANCELAR</button>
         </div>
       </div>
     </>

@@ -90,13 +90,16 @@ export default function Produtos() {
             ))}
           </tbody>
           <tfoot className={classes.tabelaRodape}>
+            <div className="botoes">
+              <td>
+                <p className="qtd" colSpan={6}>QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}</p>
+              </td>
 
-            <p colSpan={6}>QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}</p>
+              <Link to={`/adicionar/produto`} className="btn">
+                ADICIONAR NOVO PRODUTO
+              </Link>
 
-            <Link to={`/adicionar/produto`} className={classes.btnAdcionar}>
-              ADICIONAR NOVO PRODUTO
-            </Link>
-            
+            </div>
           </tfoot>
         </table>
       </div>

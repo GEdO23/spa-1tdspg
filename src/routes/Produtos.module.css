@@ -51,30 +51,18 @@
     }
 
     .tabelaRodape {
-
         display: flex;
-        width: 100%;
-        justify-content: center;
         text-align: center;
-        
-        & p, .btnAdcionar{
-            padding: 10px;
-            
-            background-color: #5900ff;
-            
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 5px;
-        }
+        margin-top: 10px;
+        margin-bottom: 18px;
     }
 
 }
 
 @keyframes brilho {
-    0%, 100% { color: #591bcc;}
+    0%, 100% { color: #5900ff;}
     50% {
-        color: #cc1b1b;
+        color: #2d0b6b;
         font-stretch: 1.5px;
     }
 }

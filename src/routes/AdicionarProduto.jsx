@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./form.module.css";
 
 export default function AdicionarProduto() {
   document.title = "Adicionar Produto";
@@ -73,7 +75,7 @@ export default function AdicionarProduto() {
             />
           </div>
           <div>
-            <button>Adicionar</button>
+            <button className="btn">Adicionar</button>
           </div>
         </fieldset>
       </form>

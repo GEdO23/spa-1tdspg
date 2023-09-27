@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./form.module.css";
 
 export default function EditarProdutos() {
 
@@ -57,7 +59,7 @@ export default function EditarProdutos() {
 
   return (
     <>
-        <div>
+        <div className="container">
 
             <form onSubmit={handleSubmit}>
               <fieldset>
@@ -76,18 +78,11 @@ export default function EditarProdutos() {
                 </div>
 
                 <div>
-                  <button >EDITAR</button>
+                  <button className="btn" >EDITAR</button>
                 </div>
               </fieldset>
             </form>
         </div>
-
-        <div>
-          <p>Nome : {produto.nome}</p>
-          <p>Preço : {produto.preco}</p>
-          <p>Desc : {produto.desc}</p>
-        </div>
-
     </>
   )
 }
