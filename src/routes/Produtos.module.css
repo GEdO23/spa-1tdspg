@@ -11,6 +11,10 @@
         & th {
             border: 2px solid #ccc;
             text-align: center;
+            display: table-cell;
+            & td {
+                display: table-cell;
+            }
         }
     }
 
@@ -26,15 +30,19 @@
             }
 
             & td {
+                display: table-cell;
                 border: 2px solid #ccc;
     
                 & img {
                     display: block;
                     margin: 0 auto;
                     width: 15%;
-                    transition: 0.4s;
+                    transition: .8s;
                     &:hover {
-                        width: 40%;
+                        width: 60%;
+                        /* &:last-child {
+                            filter: brightness(80%);
+                        } */
                     }
                 }
 
@@ -51,10 +59,9 @@
     }
 
     .tabelaRodape {
-        display: flex;
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 18px;
+        & tr> td {
+
+        }
     }
 
 }

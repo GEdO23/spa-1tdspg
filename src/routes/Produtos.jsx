@@ -19,35 +19,35 @@ export default function Produtos() {
     console.log("useEffect que renderiza apenas uma vez!");
   }, []);
 
-  useEffect(() => {
-    
-    // fetch() = API do Javascript para realizar requisições/requests, que utiliza como parâmetro uma URL ou URI.
-    fetch("http://localhost:5000/produtos",{
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      setNovaListaProdutos(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-
-  }, []);
-
-
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if(!open) {
+    
+      // fetch() = API do Javascript para realizar requisições/requests, que utiliza como parâmetro uma URL ou URI.
+      fetch("http://localhost:5000/produtos",{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        setNovaListaProdutos(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+
+  }, [open]);
+
+
 
 
   return (
     <>
       <div>
-
-        {/* { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
-        <button onClick={() => setOpen(true)}>OPEN-MODAL</button> */}
 
         <table className={classes.tabelaProd}>
           <thead className={classes.tabelaCabecalho}>
@@ -90,16 +90,22 @@ export default function Produtos() {
             ))}
           </tbody>
           <tfoot className={classes.tabelaRodape}>
-            <div className="botoes">
-              <td>
-                <p className="qtd" colSpan={6}>QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}</p>
+            <tr>
+              <td colspan="6">
+                <p className="qtd">
+                  QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}
+
+                </p>
+
+                <Link to={`/adicionar/produto`} className="btn">
+                  ADICIONAR NOVO PRODUTO
+                </Link>
+
+                { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
+                <button onClick={() => setOpen(true)} className="btn">CADASTRAR NOVO PRODUTO</button>
+
               </td>
-
-              <Link to={`/adicionar/produto`} className="btn">
-                ADICIONAR NOVO PRODUTO
-              </Link>
-
-            </div>
+            </tr>
           </tfoot>
         </table>
       </div>
