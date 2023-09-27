@@ -2,13 +2,18 @@
 
 .cabecalho {
     color: #591bcc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     & h1, & h2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
         font-family: 'Minecraft', sans-serif;
         text-shadow: 2px 2px 2px #000;
+
+        &:hover {
+            animation-name: brilho;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
     }
 
     & h1 {
@@ -21,23 +26,36 @@
 
     & ul {
         padding: 20px;
-        width: 50%;
-
+        font-family: 'Minecraft', sans-serif;
         display: flex;
+        flex-direction: row;
         justify-content: space-evenly;
-
         list-style-type: none;
-
+        gap: 20px;
+        
         & li {
-            text-decoration: none;
+            display: flex;
+            justify-content: space-evenly;
+            .lonk {
+                font-size: 2vw;
+                text-decoration: none;
+                font-family: 'Minecraft', sans-serif;
+                color: #591bcc;
+                text-shadow: 2px 2px 2px #000;
+                
+                &:hover {
+                    color: #8f5af1;
+                }
+                
+                &:focus {
+                    font-size: 2.5vw;
+                    transition: .2s;
+                }
+            }
         }
     }
 
-    &:hover {
-        animation-name: brilho;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
-    }
+
 
 }
 
@@ -45,6 +63,5 @@
     0%, 100% { color: #591bcc;}
     50% {
         color: #000000;
-        font-stretch: 1.5px;
     }
 }

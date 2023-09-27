@@ -39,7 +39,6 @@ export default function AdicionarProduto() {
 
   return (
     <div className="container">
-      <h1>ADICIONAR PRODUTO</h1>
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>ADICIONAR PRODUTO</legend>
@@ -74,7 +73,7 @@ export default function AdicionarProduto() {
             />
           </div>
           <div>
-            <button>ADICIONAR</button>
+            <button>Adicionar</button>
           </div>
         </fieldset>
       </form>

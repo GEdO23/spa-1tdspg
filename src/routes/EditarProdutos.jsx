@@ -59,8 +59,6 @@ export default function EditarProdutos() {
     <>
         <div>
 
-
-            <h1>EDITAR-PRODUTOS</h1>
             <form onSubmit={handleSubmit}>
               <fieldset>
                 <legend>EDITAR PRODUTO</legend>

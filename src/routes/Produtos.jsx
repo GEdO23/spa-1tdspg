@@ -45,7 +45,6 @@ export default function Produtos() {
   return (
     <>
       <div>
-        <h1>PRODUTOS</h1>
 
         {/* { open ? <ModalExemplo open={open} setOpen={setOpen}/> : "" }
         <button onClick={() => setOpen(true)}>OPEN-MODAL</button> */}

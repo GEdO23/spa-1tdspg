@@ -6,11 +6,11 @@ export default function Cabecalho(){
     return(
         <>
             <header className={styles.cabecalho}>
-                <h1>LOJA</h1>
-                <h2>DO ALE</h2>
+                <h1>MINI</h1>
+                <h2>LOJA</h2>
                 <ul>
-                    <li><Link to="/">HOME</Link></li>
-                    <li><Link to="/produtos">PRODUTOS</Link></li>
+                    <li><Link to="/" className={styles.lonk}>HOME</Link></li>
+                    <li><Link to="/produtos" className={styles.lonk}>PRODUTOS</Link></li>
                 </ul>
             </header>
 
