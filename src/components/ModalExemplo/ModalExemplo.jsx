@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./ModalExemplo.module.css"
+import './ModalInserir.scss'
 
 export default function ModalExemplo(props){
 
@@ -68,7 +68,7 @@ export default function ModalExemplo(props){
 
     if(props.open){
         return(
-            <div className={style.container}>
+            <div className="container">
                 <h1>Cadastrar Produto</h1>
                 <div>
                     <form onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ export default function ModalExemplo(props){
                                 />
                             </div>
                             <div>
-                                <label htmlFor="idPreco">Preço Produto:</label>
+                                <label htmlFor="idPreco">Preco Produto:</label>
                                 <input 
                                 type="text" 
                                 name="preco" 
@@ -95,7 +95,7 @@ export default function ModalExemplo(props){
                                 />
                             </div>
                             <div>
-                                <label htmlFor="idDesc">Descrição Produto:</label>
+                                <label htmlFor="idDesc">Descricao Produto:</label>
                                 <input 
                                 type="text" 
                                 name="desc" 

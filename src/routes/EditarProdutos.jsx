@@ -1,8 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "./form.module.css";
 
 export default function EditarProdutos() {
 
