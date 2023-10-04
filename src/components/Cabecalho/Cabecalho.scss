@@ -36,21 +36,38 @@
         & li {
             display: flex;
             justify-content: space-evenly;
-            .lonk {
-                font-size: 2vw;
+
+            @mixin link($fontTamanho, $isNegrito: false) {
+                font-size: $fontTamanho;
+                transition: font-size .5s;
+
                 text-decoration: none;
                 font-family: 'Minecraft', sans-serif;
+
                 color: #591bcc;
-                text-shadow: 2px 2px 2px #000;
-                
+
+                @if $isNegrito == true {
+                    text-shadow: 2px 2px 2px #000;
+
+                } @else {
+                    text-shadow: 1px 1px 1px #000;
+                    
+                }
+
                 &:hover {
                     color: #8f5af1;
                 }
+            }
+
+            .lonk {
+                @include link(2rem, false);
                 
-                &:focus {
-                    font-size: 2.5vw;
-                    transition: .2s;
-                }
+                
+            }
+            .active {
+                @include link(3rem, true);
+
+
             }
         }
     }

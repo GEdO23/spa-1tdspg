@@ -1,26 +1,20 @@
 @import url('https://fonts.cdnfonts.com/css/minecraft-4');
 
 
+$fonteFamiliaPadrao: 'Minecraft', sans-serif;
 
-
-
-@mixin fonte($fonteEstilo: normal, $fonteVariante: normal, $fontePeso: normal, $fonteStretch: normal, $fonteTamanho: 1rem, $alturaLinha: normal, $fonteFamilia) {
+@mixin fonte($fonteEstilo: normal, $fonteVariante: normal, $fontePeso: normal, $fonteStretch: normal, $fonteTamanho: 1rem, $alturaLinha: normal, $fonteFamilia: $fonteFamiliaPadrao) {
     font-style: $fonteEstilo;
     font-variant: $fonteVariante;
     font-weight: $fontePeso;
     font-stretch: $fonteStretch;
     font-size: $fonteTamanho;
     line-height: $alturaLinha;
-    font-family: $fonteFamilia, sans-serif;
-}
-
-
-
+    font-family: $fonteFamilia;
+};
 
 
 .container{
-    $fonteFamiliaMinecraft: 'Minecraft', sans-serif;
-
     background-color: rgba(0,0,0,0.7);
     color: #fff;
 
@@ -36,12 +30,12 @@
     
 
     & h1 {
-        @include fonte($fonteFamiliaMinecraft);
+        @include fonte();
         margin: auto;
         text-align: center;
     }
-
+    
     & label {
-        @include fonte($fonteFamiliaMinecraft);
+        @include fonte();
     }
 }

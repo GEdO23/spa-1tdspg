@@ -42,6 +42,20 @@ export default function Produtos() {
 
   }, [open]);
 
+  const handleExcluir = (id) => {
+
+    fetch(`http://localhost:5000/produtos/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response)=> console.log(response.status))
+    .catch((error)=> console.log(error))
+
+    window.location("produtos");
+
+  };
 
 
 
@@ -82,7 +96,7 @@ export default function Produtos() {
                     <Editar className={classes.icon}/>
                   </Link>{" "}
                   /{" "}
-                  <Link to={`/excluir/produto/${produto.id}`}>
+                  <Link onClick={() => handleExcluir(produto.id)}>
                     <Excluir className={classes.icon}/>
                   </Link>{" "}
                 </td>
@@ -91,7 +105,7 @@ export default function Produtos() {
           </tbody>
           <tfoot className={classes.tabelaRodape}>
             <tr>
-              <td colspan="6">
+              <td colSpan="6">
                 <p className="qtd">
                   QUANTIDADE DE PRODUTOS: {novaListaProdutos.length}
 

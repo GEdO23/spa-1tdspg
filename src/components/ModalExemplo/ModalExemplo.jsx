@@ -35,14 +35,6 @@ export default function ModalExemplo(props){
         
         const {name, value} = e.target;
 
-        // if(name == "nome") {
-        //     setProduto({"nome": value});
-        // } else if (name == "preco") {
-        //     setProduto({"preco": value});
-        // } else if (name == "desc") {
-        //     setProduto({"desc": value});
-        // }
-
         setProduto({...produto, [name]:value});
     }
 
